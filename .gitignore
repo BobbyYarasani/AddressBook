@@ -1,0 +1,8 @@
+
+*.class
+# ignore idea storage
+.idea/
+*.iml
+*.iws
+build
+target/
