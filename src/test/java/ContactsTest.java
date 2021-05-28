@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.zip.DataFormatException;
 
 
@@ -23,5 +24,11 @@ public class ContactsTest {
         Assertions.assertThrows(DataFormatException.class, () -> {
             contacts.getContacts();
         });
+    }
+    @Test
+    public void testNoOfContactsIntheAddressBook() throws IOException, DataFormatException {
+        Contacts contacts = new Contacts();
+        contacts.setFilePath("src/test/resources/addressbook.csv");
+        Assertions.assertEquals(contacts.getContacts().stream().count(),5);
     }
 }
